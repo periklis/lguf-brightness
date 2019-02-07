@@ -149,7 +149,7 @@ uint16_t get_brightness(libusb_device_handle *handle)
     {
         printw("Unable to get brightness.\n");
         printw("libusb_control_transfer error: %s (%d)\n", libusb_error_name(res), res);
-    } 
+    }
     else {
         // for (int i = 0; i < sizeof(data); i++) {
         //     printw("0x%x  ", data[i]);
@@ -177,7 +177,7 @@ void set_brightness(libusb_device_handle *handle, uint16_t val)
     {
         printw("Unable to set brightness.\n");
         printw("libusb_control_transfer error: %s\n", libusb_error_name(res));
-    } 
+    }
     // else {
     //     get_brightness(handle);
     // }
@@ -249,7 +249,7 @@ int main(void)
     cbreak();
 
     r = libusb_init(NULL);
-    libusb_set_debug(NULL, LIBUSB_LOG_LEVEL_WARNING);       // LIBUSB_LOG_LEVEL_DEBUG  
+    libusb_set_debug(NULL, LIBUSB_LOG_LEVEL_WARNING);       // LIBUSB_LOG_LEVEL_DEBUG
     if (r < 0)
     {
         printw("Unable to initialize libusb.\n");
@@ -266,7 +266,7 @@ int main(void)
     }
 
     lgdev = get_lg_ultrafine_usb_device(devs);
-    
+
     if (lgdev == NULL)
     {
         printw("Failed to get LG screen device.\n");
@@ -306,8 +306,8 @@ int main(void)
     libusb_exit(NULL);
 
     getch();
-    
+
     endwin();
-    
+
     return 0;
 }
