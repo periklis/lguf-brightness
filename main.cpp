@@ -278,13 +278,13 @@ int main(void)
     if (openCode == 0)
     {
         libusb_set_auto_detach_kernel_driver(handle, 1);
-        r = libusb_claim_interface(handle, 0);
+        r = libusb_claim_interface(handle, 1);
         if (r != LIBUSB_SUCCESS) {
             printw("Failed to clain interface 0. Error: %d\n", r);
         }
 
         adjust_brighness(handle);
-        libusb_release_interface(handle, 0);
+        libusb_release_interface(handle, 1);
         libusb_close(handle);
     }
     else
